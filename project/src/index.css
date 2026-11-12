@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream-50 text-ink-900 font-sans;
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tighter2;
+  }
+
+  ::selection {
+    @apply bg-marigold-200 text-ink-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-marigold-500 px-7 py-3.5 text-sm font-semibold text-ink-900 transition-all duration-300 hover:bg-marigold-400 hover:shadow-lg hover:shadow-marigold-500/20 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink-900/15 bg-transparent px-7 py-3.5 text-sm font-semibold text-ink-800 transition-all duration-300 hover:border-ink-900/30 hover:bg-ink-900/[0.03] active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-ink-700 transition-colors duration-200 hover:text-ink-900;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-marigold-600;
+  }
+
+  .section-container {
+    @apply mx-auto max-w-8xl px-6 sm:px-8 lg:px-12;
+  }
+
+  .card-shadow {
+    box-shadow: 0 1px 2px rgba(26, 26, 26, 0.04), 0 8px 24px rgba(26, 26, 26, 0.06);
+  }
+
+  .card-shadow-hover {
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+  }
+
+  .card-shadow-hover:hover {
+    box-shadow: 0 2px 4px rgba(26, 26, 26, 0.06), 0 16px 48px rgba(26, 26, 26, 0.10);
+    transform: translateY(-4px);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stroke-draw {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .stroke-draw {
+    stroke-dashoffset: 0 !important;
+  }
+}
